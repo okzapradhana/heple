@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp"
+        tools:context=".PostInformasiActivity">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@id/nama_penjual"
+            android:text="Nama"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/nama_penjual"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:inputType="text" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:labelFor="@+id/alamat"
+            android:text="Alamat"
+            android:textSize="20sp"
+
+            />
+
+        <EditText
+            android:id="@+id/alamat"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:inputType="text" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:labelFor="@+id/lokasi_berjualan"
+            android:text="Lokasi Berjualan"
+            android:textSize="20sp"
+
+            />
+
+        <EditText
+            android:id="@+id/lokasi_berjualan"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:inputType="text" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:labelFor="@+id/peta_lokasi"
+            android:text="Peta Lokasi"
+            android:textSize="20dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/peta_lokasi"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:hint="Copy location url here"
+                android:inputType="textUri"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/piclocation"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_weight="5"
+                android:onClick="openMap"
+                android:src="@drawable/placeholder" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:labelFor="@+id/no_hp"
+            android:text="No Hp"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/no_hp"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:inputType="phone" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="20dp"
+            android:text="Status Berjualan" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <RadioButton
+                android:layout_weight="2"
+                android:id="@+id/radio_menetap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="chooseStatusBerjualan"
+                android:text="Menetap"
+
+                />
+
+            <RadioButton
+                android:layout_weight="12"
+                android:id="@+id/radio_berkeliling"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="chooseStatusBerjualan"
+                android:text="Berkeliling"
+
+                />
+
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Deskripsi"
+            android:layout_marginTop="20dp"
+            android:textSize="20dp"
+            android:labelFor="@+id/deskripsi"
+            />
+        <EditText
+            android:id="@+id/deskripsi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:lines="4"
+            android:gravity="top|left"
+            android:minLines="2"
+            android:maxLines="6"
+            android:maxLength="500"
+            android:scrollbars="vertical"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Max: 500 char"
+            android:gravity="right"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Foto"
+            android:layout_marginTop="20dp"
+            android:textSize="20dp"
+            android:labelFor="@+id/deskripsi"
+            />
+
+        <ImageView
+            android:id="@+id/photo"
+            android:onClick="choosePhoto"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:src="@drawable/photo"
+            android:layout_marginTop="10dp"
+            />
+
+    </LinearLayout>
+
+</ScrollView>
