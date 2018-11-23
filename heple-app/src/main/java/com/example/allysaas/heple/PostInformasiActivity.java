@@ -22,7 +22,7 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
-import com.example.allysaas.heple.model.Post;
+import com.example.allysaas.heple.model.Posting;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -40,20 +40,20 @@ import java.io.IOException;
 
 public class PostInformasiActivity extends AppCompatActivity {
 
-    EditText nama, alamat, lokasi, urlPeta, noHp, deskripsi;
+    EditText namaPenjual, alamat, lokasi, urlPeta, noHp, deskripsi;
     ImageView choosenPhoto;
     RadioButton menetap, berkeliling;
     boolean choosen;
     String status;
     private int PICK_IMAGE_REQUEST = 1;
-    String photoUrl, uid, authorMail;
+    String photoUrl, uid;
 
     Uri file;
     FirebaseStorage storage;
     StorageReference storageReference;
 
     FirebaseDatabase database;
-    DatabaseReference ref;
+    DatabaseReference mRefPosting;
     FirebaseAuth mAuth;
     FirebaseUser user;
 
@@ -67,7 +67,6 @@ public class PostInformasiActivity extends AppCompatActivity {
 
         if (user != null) {
             uid = user.getUid();
-            authorMail = user.getEmail();
             Log.d("User", uid);
         } else {
             Log.d("Check User", user.toString());
@@ -75,7 +74,7 @@ public class PostInformasiActivity extends AppCompatActivity {
 
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
-        nama = findViewById(R.id.nama_penjual);
+        namaPenjual = findViewById(R.id.nama_penjual);
         alamat = findViewById(R.id.alamat);
         lokasi = findViewById(R.id.lokasi_berjualan);
         urlPeta = findViewById(R.id.peta_lokasi);
@@ -106,26 +105,25 @@ public class PostInformasiActivity extends AppCompatActivity {
     private void postInformasi() {
 
         database = FirebaseDatabase.getInstance();
-        ref = database.getReference();
+        mRefPosting = database.getReference();
 
         String postId = FirebaseDatabase.getInstance().getReference().push().getKey();
 
-        Post post = new Post(postId, uid, authorMail,
-                nama.getText().toString(), alamat.getText().toString(), lokasi.getText().toString(),
-                urlPeta.getText().toString(), noHp.getText().toString(), status, deskripsi.getText().toString(), photoUrl);
+        Posting mPosting = new Posting(uid, namaPenjual.getText().toString(), alamat.getText().toString(), lokasi.getText().toString(), urlPeta.getText().toString(), noHp.getText().toString(),
+                status, deskripsi.getText().toString(), photoUrl);
 
         if (validate()) {
-            ref.child("posting").child(postId).setValue(post).addOnCompleteListener(new OnCompleteListener<Void>() {
+            mRefPosting.child("posting").child(postId).setValue(mPosting).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
-                    Toast.makeText(PostInformasiActivity.this, "Berhasil post", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PostInformasiActivity.this, "Berhasil posting", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(PostInformasiActivity.this, HomeActivity.class);
                     startActivity(intent);
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
-                    Toast.makeText(PostInformasiActivity.this, "Gagal post", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PostInformasiActivity.this, "Gagal posting", Toast.LENGTH_SHORT).show();
                 }
             });
         }
@@ -133,7 +131,7 @@ public class PostInformasiActivity extends AppCompatActivity {
     }
 
     public boolean validate() {
-        if (nama.getText().toString().isEmpty() || alamat.getText().toString().isEmpty()
+        if (namaPenjual.getText().toString().isEmpty() || alamat.getText().toString().isEmpty()
                 || lokasi.getText().toString().isEmpty() || urlPeta.getText().toString().isEmpty()
                 || noHp.getText().toString().isEmpty() || deskripsi.getText().toString().isEmpty() || choosenPhoto == null
                 || status.isEmpty()

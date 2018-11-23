@@ -26,7 +26,10 @@
             android:id="@+id/nama_penjual"
             android:layout_width="300dp"
             android:layout_height="40dp"
-            android:inputType="text" />
+            android:inputType="text"
+            android:padding="10dp"
+            android:background="@drawable/custom_whiteinput"
+            />
 
 
         <TextView
@@ -43,7 +46,10 @@
             android:id="@+id/alamat"
             android:layout_width="300dp"
             android:layout_height="40dp"
-            android:inputType="text" />
+            android:inputType="text"
+            android:padding="10dp"
+            android:background="@drawable/custom_whiteinput"
+            />
 
         <TextView
             android:layout_width="wrap_content"
@@ -59,7 +65,10 @@
             android:id="@+id/lokasi_berjualan"
             android:layout_width="300dp"
             android:layout_height="40dp"
-            android:inputType="text" />
+            android:inputType="text"
+            android:background="@drawable/custom_whiteinput"
+            android:padding="10dp"
+            />
 
         <TextView
             android:layout_width="wrap_content"
@@ -67,7 +76,9 @@
             android:layout_marginTop="20dp"
             android:labelFor="@+id/peta_lokasi"
             android:text="Peta Lokasi"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+
+            />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -80,7 +91,10 @@
                 android:layout_weight="1"
                 android:hint="Copy location url here"
                 android:inputType="textUri"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:padding="10dp"
+                android:background="@drawable/custom_whiteinput"
+                />
 
             <ImageView
                 android:id="@+id/piclocation"
@@ -105,7 +119,10 @@
             android:id="@+id/no_hp"
             android:layout_width="300dp"
             android:layout_height="40dp"
-            android:inputType="phone" />
+            android:inputType="phone"
+            android:background="@drawable/custom_whiteinput"
+            android:padding="10dp"
+            />
 
         <TextView
             android:layout_width="wrap_content"
@@ -161,6 +178,8 @@
             android:maxLines="6"
             android:maxLength="500"
             android:scrollbars="vertical"
+            android:background="@drawable/custom_whiteinput"
+            android:padding="10dp"
             />
         <TextView
             android:layout_width="match_parent"

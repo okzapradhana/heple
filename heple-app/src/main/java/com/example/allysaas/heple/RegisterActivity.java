@@ -24,7 +24,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
-    EditText etUsername, etEmail, etPassword, etConfirmPassword;
+    EditText name, etEmail, etPassword, etConfirmPassword;
     Button btnRegister;
     TextView txtLogin;
 
@@ -39,7 +39,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        etUsername = findViewById(R.id.editTextUsername);
+        name = findViewById(R.id.editTextName);
         etEmail = findViewById(R.id.editTextEmail);
         etPassword = findViewById(R.id.editTextPassword);
         etConfirmPassword = findViewById(R.id.editTextConfirm);
@@ -60,24 +60,26 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        Log.d(TAG, "createUserWithEmail:onComplete:" + task.isSuccessful());
-                        user = mAuth.getCurrentUser();
-
-                        String uid = user.getUid();
-
-                        Member member = new Member(user.getEmail());
-                        ref.child("member").child(uid).setValue(member);
-
                         if (!task.isSuccessful()) {
-                            Toast.makeText(RegisterActivity.this, "register failed",
+                            Toast.makeText(RegisterActivity.this, "Register gagal",
                                     Toast.LENGTH_SHORT).show();
+                        } else{
+                            Log.d(TAG, "createUserWithEmail:onComplete:" + task.isSuccessful());
+                            user = mAuth.getCurrentUser();
+                            String uid = user.getUid();
+                            Member member = new Member(name.getText().toString(), user.getEmail());
+                            ref.child("member").child(uid).setValue(member);
+                            Toast.makeText(RegisterActivity.this, "Register berhasil", Toast.LENGTH_SHORT).show();
+                            Intent myIntent = new Intent(RegisterActivity.this, LoginActivity.class);
+                            startActivity(myIntent);
                         }
+
                     }
                 });
     }
 
     boolean validasiRegister(){
-        if(etUsername.getText().toString().isEmpty()|| etEmail.getText().toString().isEmpty() || etPassword.getText().toString().isEmpty() || etConfirmPassword.getText().toString().isEmpty()) {
+        if(name.getText().toString().isEmpty()|| etEmail.getText().toString().isEmpty() || etPassword.getText().toString().isEmpty() || etConfirmPassword.getText().toString().isEmpty()) {
             Toast.makeText(this, "Form yang diisi belum lengkap",Toast.LENGTH_LONG).show();
             return false;
         } else {
@@ -98,3 +100,4 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 }
+

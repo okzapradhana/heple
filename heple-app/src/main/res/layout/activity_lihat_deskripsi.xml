@@ -1,137 +1,329 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LihatDeskripsiActivity"
     android:orientation="vertical"
-    >
+    tools:context=".LihatDeskripsiActivity">
 
-    <android.support.v7.widget.CardView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardUseCompatPadding="true">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <android.support.v7.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp">
-
-                <TextView
-                    android:id="@+id/author_lihatdeskripsi"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Selena Gomez" />
-
-                <TextView
-                    android:id="@+id/time_lihatdeskripsi"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="right"
-                    android:text="4 hr ago" />
-
-
-            </LinearLayout>
+            android:layout_height="wrap_content"
+            app:cardUseCompatPadding="true">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:id="@+id/gambar_penjual_lihatdeskripsi"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:layout_marginTop="15dp"
-                    android:src="@drawable/jualan" />
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
                     android:padding="10dp">
 
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:src="@drawable/like"
-
-                        />
-
                     <TextView
-                        android:id="@+id/like_lihatdeskripsi"
+                        android:id="@+id/author_lihatdeskripsi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="5dp"
-                        android:text="110" />
+                        android:text="Selena Gomez" />
 
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_marginLeft="20dp"
-                        android:src="@drawable/chat" />
+                    <TextView
+                        android:id="@+id/time_lihatdeskripsi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="4 hr ago" />
+
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:padding="10dp">
+                    android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/deskripsi_lihatdeskripsi"
+                    <ImageView
+                        android:id="@+id/gambar_penjual_lihatdeskripsi"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Deskripsi" />
-                    <TextView
-                        android:id="@+id/nama_penjual_lihatdeskripsi"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Nama"
-                        />
+                        android:layout_height="200dp"
+                        android:layout_marginTop="15dp"
+                        android:src="@drawable/jualan" />
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:padding="10dp">
+
+                        <ImageView
+                            android:id="@+id/share_lihatdeskripsi"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/share" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="10dp"
+                            android:text="Share" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="20dp"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="10dp"
+
+                            >
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+
+                                >
+
+                                <TextView
+                                    android:id="@+id/nama_penjual_lihatdeskripsi"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="Nama Penjual"
+                                    android:textSize="17sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/value_nama_penjual_lihatdeskripsi"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="2"
+                                    android:text="Selena Gomez" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="10dp"
+                                android:orientation="vertical"
+
+                                >
+
+                                <TextView
+                                    android:id="@+id/alamat_lihatdeskripsi"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0"
+                                    android:text="Alamat"
+                                    android:textSize="17sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/value_alamat_lihatdeskripsi"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="2"
+                                    android:text="Malang" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="10dp"
+                                android:orientation="vertical"
+
+                                >
+
+                                <TextView
+                                    android:id="@+id/lokasi_berjualan_lihatdeskripsi"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0"
+                                    android:text="Lokasi Berjualan"
+                                    android:textStyle="bold"
+                                    android:textSize="17sp"
+                                    />
+
+                                <TextView
+                                    android:id="@+id/value_lokasi_berjualan_lihatdeskripsi"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="2"
+                                    android:text="Jalan SoeSayang" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="10dp"
+                                android:orientation="vertical"
+
+                                >
+
+                                <TextView
+                                    android:id="@+id/peta_lokasi_detaildeskripsi"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0"
+                                    android:text="Peta Lokasi"
+                                    android:textStyle="bold"
+                                    android:textSize="17sp"
+                                    />
+
+
+                                <TextView
+                                    android:id="@+id/value_peta_lokasi_detaildeskripsi"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="2"
+                                    android:autoLink="map"
+                                    android:text="https://google.com" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="10dp"
+                                android:orientation="vertical"
+
+                                >
+
+                                <TextView
+                                    android:id="@+id/no_hp_detaildeskripsi"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0"
+                                    android:text="No HP"
+                                    android:textSize="17sp"
+                                    android:textStyle="bold" />
+
+
+                                <TextView
+                                    android:id="@+id/value_no_hp_detaildeskripsi"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="2"
+                                    android:autoLink="phone"
+                                    android:text="081238118533" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="10dp"
+                                android:orientation="vertical"
+
+                                >
+
+                                <TextView
+                                    android:id="@+id/status_berjualan_detaildeskripsi"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0"
+                                    android:textSize="17sp"
+                                    android:text="Status Berjualan"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/value_status_berjualan_detaildeskripsi"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="2"
+                                    android:autoLink="phone"
+                                    android:text="Menetap" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="10dp"
+                                android:orientation="vertical"
+
+                                >
+
+                                <TextView
+                                    android:id="@+id/deskripsi_lihatdeskripsi"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Deskripsi"
+                                    android:textSize="17sp"
+                                    android:textStyle="bold" />
+
+
+                                <TextView
+                                    android:id="@+id/isi_deskripsi_lihatdeskripsi"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Isi" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
 
-    </android.support.v7.widget.CardView>
+        </android.support.v7.widget.CardView>
 
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_horizontal"
-        android:background="@color/colorWhite"
-        android:orientation="horizontal"
-        android:padding="10dp"
-        >
-
-        <EditText
-            android:id="@+id/comment"
-            android:layout_weight="1"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/komentar_recyclerview"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:hint="Enter a comment..."
-             />
-        <ImageView
-            android:id="@+id/button_comment"
-            android:layout_weight="1"
-            android:layout_gravity="bottom"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/rightarrow"
-            android:layout_toRightOf="@+id/comment"
-            />
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1">
+
+
+        </android.support.v7.widget.RecyclerView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <EditText
+                android:id="@+id/comment"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:padding="10dp"
+                android:layout_gravity="bottom"
+                android:layout_weight="1"
+                android:hint="Enter a comment..."
+                android:background="@drawable/custom_whiteinput"
+                />
+
+            <ImageView
+                android:id="@+id/button_comment"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/comment"
+
+                android:src="@drawable/rightarrow" />
+        </LinearLayout>
     </LinearLayout>
 
-
-</LinearLayout>
+</ScrollView>
